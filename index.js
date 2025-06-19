@@ -1,6 +1,7 @@
-import express from 'express'
 import puppeteer from 'puppeteer-core'
 import { executablePath } from 'puppeteer'
+import express from 'express'
+
 
 const app = express()
 app.use(express.json())
