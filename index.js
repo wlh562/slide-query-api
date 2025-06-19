@@ -1,4 +1,4 @@
-import puppeteer from 'puppeteer-core'
+import puppeteer from 'puppeteer'
 import express from 'express'
 
 const app = express()
@@ -39,7 +39,8 @@ app.post('/query', async (req, res) => {
   }
 })
 
-const PORT = process.env.PORT || 3000
-app.listen(PORT, () => {
-  console.log(`✅ API ready at http://localhost:${PORT}`)
+const browser = await puppeteer.launch({
+  headless: true,
+  args: ['--no-sandbox']
 })
+
