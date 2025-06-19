@@ -1,7 +1,5 @@
 import puppeteer from 'puppeteer-core'
-import { executablePath } from 'puppeteer'
 import express from 'express'
-
 
 const app = express()
 app.use(express.json())
@@ -16,7 +14,7 @@ app.post('/query', async (req, res) => {
   const browser = await puppeteer.launch({
     headless: true,
     args: ['--no-sandbox'],
-    executablePath: executablePath() // 使用 Render 的 Chromium
+    executablePath: '/usr/bin/google-chrome' // ✅ 指定 Render 可用的瀏覽器路徑
   })
 
   try {
